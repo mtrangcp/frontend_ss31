@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ss31 cb2</title>
+  </head>
+  <style>
+    #btn-toggle {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+    }
+    .toggle {
+      background-color: black;
+      color: white;
+    }
+    .toggle-btn {
+      background-color: white;
+      color: black;
+    }
+  </style>
+  <body>
+    <p id="text">Toggle Dark/Light Mode</p>
+    <p id="text">
+      Click the button to toggle between dark and light mode for this page
+    </p>
+
+    <button id="btn-toggle">Toggle dark mode</button>
+
+    <script>
+      let btn = document.querySelector("#btn-toggle");
+
+      btn.addEventListener("click", function () {
+        document.body.classList.toggle("toggle");
+        btn.classList.toggle("toggle-btn");
+      });
+    </script>
+  </body>
+</html>

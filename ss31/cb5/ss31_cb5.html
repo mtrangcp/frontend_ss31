@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ss31 cb5</title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>AGE</th>
+          <th>ADDRESS</th>
+        </tr>
+      </thead>
+      <tbody id="list-user"></tbody>
+    </table>
+
+    <script>
+      const employees = [
+        { id: 1, name: "Johnn", age: 18, address: "New York" },
+        { id: 2, name: "Mike", age: 22, address: "Canada" },
+        { id: 3, name: "Linda", age: 19, address: "California" },
+        { id: 4, name: "Peter", age: 25, address: "London" },
+        { id: 5, name: "Tony", age: 17, address: "New York" },
+      ];
+
+      let listUser = document.querySelector("#list-user");
+      employees.forEach((user, index) => {
+        const trElement = document.createElement("tr");
+        // const tdID = document.createElement("td");
+        // const tdName = document.createElement("td");
+        // const tdAge = document.createElement("td");
+        // const tdAddress = document.createElement("td");
+
+        // tdID.textContent = user.id;
+        // tdName.textContent = user.name;
+        // tdAge.textContent = user.age;
+        // tdAddress.textContent = user.address;
+
+        // trElement.appendChild(tdID);
+        // trElement.appendChild(tdName);
+        // trElement.appendChild(tdAge);
+        // trElement.appendChild(tdAddress);
+
+        trElement.innerHTML = `
+          <td>${user.id}</td>
+          <td>${user.name}</td>
+          <td>${user.age}</td>
+          <td>${user.address}</td>
+        `;
+
+        listUser.appendChild(trElement);
+      });
+    </script>
+  </body>
+</html>

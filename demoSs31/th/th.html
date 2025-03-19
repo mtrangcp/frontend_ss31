@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>to do list</title>
+  </head>
+  <body>
+    <h1>To do list</h1>
+    <div>
+      <form action="#" id="form">
+        <input type="text" id="jod-name" />
+        <button type="submit" id="btn-submit">submit</button>
+      </form>
+      <span style="display: none" id="error"></span>
+    </div>
+    <ul id="list-job"></ul>
+
+    <script>
+      let valueInput = "";
+      let jobs = [];
+      // lay ra element
+      const formEl = document.querySelector("#form");
+      const inputEl = document.querySelector("#jod-name");
+      const btnEl = document.querySelector("#btn-submit");
+      const errorEl = document.querySelector("#error");
+      const listJob = document.querySelector("#list-job");
+
+      function renderJob() {
+        listJob.textContent = "";
+        jobs.forEach((job, index) => {
+          const liEl = document.createElement("li");
+          liEl.textContent = job.name;
+          // gan li lam con cua ul
+          listJob.appendChild(liEl);
+        });
+      }
+
+      inputEl.addEventListener("input", function (event) {
+        // validate
+        valueInput = "";
+        if (!event.target.value) {
+          errorEl.style.display = "block";
+          errorEl.textContent = "Ten cv k dc rong";
+        } else {
+          errorEl.style.display = "none";
+          valueInput = event.target.value;
+        }
+        console.log(event.target.value);
+      });
+
+      // submit form
+      formEl.addEventListener("submit", function (event) {
+        // ngan su kien mac dinh
+        event.preventDefault();
+
+        if (inputEl) {
+          // them cv vao arr
+          const newJob = {
+            id: jobs.length + 1,
+            name: valueInput,
+            status: false,
+          };
+          jobs.push(newJob);
+          inputEl.value = "";
+          alert("them thanh cong");
+          renderJob();
+        }
+      });
+    </script>
+  </body>
+</html>

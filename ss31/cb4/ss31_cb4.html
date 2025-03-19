@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ss31 cb4</title>
+    <style>
+      .box {
+        background-color: rgb(0, 0, 0, 0.4);
+        position: fixed;
+        inset: 0;
+        display: none;
+      }
+      .dialog {
+        width: 300px;
+        height: 100px;
+        background-color: aliceblue;
+        color: black;
+        border-radius: 10px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="heading">Model Example</h3>
+
+    <button id="btn">Open Model</button>
+
+    <div class="box">
+      <div class="dialog">
+        <p>Some text in the modal</p>
+        <ion-icon name="close-outline" id="del"></ion-icon>
+      </div>
+    </div>
+
+    <script>
+      let btn = document.querySelector("#btn");
+      let overLay = document.querySelector(".box");
+      let iconDel = document.querySelector("#del");
+
+      btn.addEventListener("click", function () {
+        overLay.style.display = "block";
+      });
+
+      iconDel.addEventListener("click", function () {
+        overLay.style.display = "none";
+      });
+    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

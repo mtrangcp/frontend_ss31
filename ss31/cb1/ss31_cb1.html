@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ss31 cb1</title>
+  </head>
+  <body>
+    <p id="text">this is a text</p>
+
+    <button id="btn-hide">hide text</button>
+    <button id="btn-show">show text</button>
+
+    <script>
+      let textEl = document.querySelector("#text");
+      let btnHide = document.querySelector("#btn-hide");
+      let btnShow = document.querySelector("#btn-show");
+
+      btnHide.addEventListener("click", function () {
+        textEl.style.display = "none";
+      });
+
+      btnShow.addEventListener("click", function () {
+        textEl.style.display = "block";
+      });
+    </script>
+  </body>
+</html>

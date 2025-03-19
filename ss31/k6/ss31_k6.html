@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ss31 k6</title>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <label for="username">username</label><br />
+      <input type="text" id="username" name="username" /><br />
+      <span id="error-username"></span><br /><br />
+
+      <label for="password">password</label><br />
+      <input type="password" id="password" name="password" /><br />
+      <span id="error-pass"></span><br /><br />
+
+      <button id="btn-login">login</button>
+    </form>
+
+    <script>
+      let usernameDefault = "huanrose@gmail.com";
+      let passDefault = "123456";
+      let username = document.querySelector("#username");
+      let pass = document.querySelector("#password");
+      let btn = document.querySelector("#btn-login");
+
+      let errUsername = document.querySelector("#error-username");
+      let errPass = document.querySelector("#error-pass");
+
+      const checkInfo = () => {
+        let check = true;
+        if (username.value.trim() === "") {
+          errUsername.textContent = "Username không được trống!";
+          check = false;
+        }
+        if (pass.value.trim() === "") {
+          errPass.textContent = "Pass không được trống!";
+          check = false;
+        }
+        errUsername.style.display = "block";
+        errPass.style.display = "block";
+
+        return check;
+      };
+
+      btn.addEventListener("click", function (event) {
+        event.preventDefault();
+        let resultCheckInfo = checkInfo();
+        if (resultCheckInfo) {
+          errUsername.style.display = "none";
+          errPass.style.display = "none";
+
+          username.value.trim() === usernameDefault &&
+          pass.value.trim() === passDefault
+            ? console.log("Đăng nhập thành công")
+            : console.log("Đăng nhập thất bại");
+        }
+      });
+    </script>
+  </body>
+</html>
