@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ss31 g9</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <link rel="stylesheet" href="../k7/ss31_k7.css" />
+  <body>
+    <div id="myDIV" class="header">
+      <h2 style="margin: 5px">My To Do List</h2>
+      <input type="text" id="myInput" placeholder="Title..." />
+      <span class="addBtn">Add</span>
+    </div>
+
+    <ul id="myUL">
+      <!-- dữ liệu mẫu ko được sử dụng  -->
+      <li class="checked">
+        Pay bills <span class="btn-del" id="btnDel">X</span>
+      </li>
+    </ul>
+
+    <script>
+      let todoLists = [
+        { id: 1, task: "Hit the gym", completed: false },
+        { id: 2, task: "Pay bills", completed: true },
+        { id: 3, task: "Meet george", completed: false },
+        { id: 4, task: "Buy eggs", completed: false },
+        { id: 5, task: "Read a book", completed: false },
+        { id: 6, task: "Organize office", completed: false },
+      ];
+
+      let listTask = document.querySelector("#myUL");
+      let inputEl = document.querySelector("#myInput");
+      let btnAdd = document.querySelector(".addBtn");
+
+      const renderData = () => {
+        listTask.innerHTML = "";
+        todoLists.forEach((item, index) => {
+          const liEl = document.createElement("li");
+          liEl.innerHTML = `${item.task}`;
+
+          listTask.appendChild(liEl);
+        });
+      };
+
+      //   renderData();
+      btnAdd.addEventListener("click", function () {
+        let valueInput = inputEl.value.trim();
+        if (valueInput === "") {
+          alert("Dữ liệu rỗng");
+        } else {
+          let objTask = {
+            id: todoLists.length + 1,
+            task: valueInput,
+            completed: false,
+          };
+
+          todoLists.push(objTask);
+          renderData();
+          inputEl.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
