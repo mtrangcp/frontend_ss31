@@ -123,8 +123,12 @@ input {
 
 .btn-del{
     background-color: red;
+    padding: 3px 10px;
 }
-
+.btn-del:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
 
 
 

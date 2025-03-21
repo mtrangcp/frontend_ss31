@@ -15,9 +15,9 @@
 
     <ul id="myUL">
       <!-- dữ liệu mẫu ko được sử dụng  -->
-      <li class="checked">
-        Pay bills <span class="btn-del" id="btnDel">X</span>
-      </li>
+      <!-- <li class="checked">
+        Pay bills <span class="btn-del" id="btnDel" onclick="delItem()">X</span>
+      </li> -->
     </ul>
 
     <script>
@@ -36,15 +36,16 @@
 
       const renderData = () => {
         listTask.innerHTML = "";
-        todoLists.forEach((item, index) => {
-          const liEl = document.createElement("li");
-          liEl.innerHTML = `${item.task}`;
-
-          listTask.appendChild(liEl);
+        let htmls = todoLists.map((item, index) => {
+          return `<li>${item.task} 
+          <span class="btn-del" id="btnDel" onclick="delItem('${item.task}',${index})">X</span></li>`;
         });
+
+        const convertArr = htmls.join("");
+        listTask.innerHTML = convertArr;
       };
 
-      //   renderData();
+      renderData();
       btnAdd.addEventListener("click", function () {
         let valueInput = inputEl.value.trim();
         if (valueInput === "") {
@@ -61,6 +62,14 @@
           inputEl.value = "";
         }
       });
+
+      function delItem(item, index) {
+        let test = confirm(`Có chắn chắn xóa "${item}"?`);
+        if (test) {
+          todoLists.splice(index, 1);
+          renderData();
+        }
+      }
     </script>
   </body>
 </html>
