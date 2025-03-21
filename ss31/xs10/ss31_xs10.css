@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+.formAdd{
+    margin: 20px 0;
+    
+}
+
+.btn-add{
+    border: none;
+    padding: 5px 20px;
+    margin-top: 10px;
+    border-radius: 7px;
+    background-color: rgb(79, 79, 79);
+    color: white;
+}
+
+.btn-add:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+input{
+    width: 300px;
+    height: 40px;
+    border: 1px solid gray;
+    border-radius: 7px;
+    padding-left: 10px;
+}
+
+
+
+
